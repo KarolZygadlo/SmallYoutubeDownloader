@@ -1,6 +1,16 @@
 import tkinter
 import customtkinter
-from pytube import YouTube 
+from pytube import YouTube
+
+def startDownload():
+    try:
+        ytLink = link.get()
+        ytObject = YouTube(ytLink)
+        video = ytObject.streams.get_highest_resolution()
+        video.download()
+    except:
+        print("YouTube link is invalid")
+    print("Download Complete!")
 
 customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("blue")
@@ -18,9 +28,6 @@ link.pack()
 
 download = customtkinter.CTkButton(app, text="Download", command=startDownload)
 download.pack()
-
-
-
 
 
 app.mainloop()
