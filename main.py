@@ -10,9 +10,9 @@ def startDownload():
         title.configure(text=ytObject.title)
         finishLabel.configure(text="")
         video.download("videos")
+        finishLabel.configure(text="Downloaded!")
     except:
-        finishLabel.configure(text="YouTube link is invalid", text_color="red")
-    finishLabel.configure(text="Downloaded")
+        finishLabel.configure(text="Error, wrong link", text_color="red")
 
 customtkinter.set_appearance_mode("Dark")
 customtkinter.set_default_color_theme("blue")
